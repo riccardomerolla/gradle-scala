@@ -9,8 +9,9 @@ repositories{
 
 dependencies{
     compile 'org.slf4j:slf4j-api:1.7.5'
-    compile "org.scala-lang:scala-library:2.11.5"
-    testCompile "junit:junit:4.11"
+    compile 'ch.qos.logback:logback-classic:1.1.2'
+    compile 'org.scala-lang:scala-library:2.11.6'
+    testCompile 'junit:junit:4.11'
     testCompile 'org.scalatest:scalatest_2.11:2+'
 }
 
