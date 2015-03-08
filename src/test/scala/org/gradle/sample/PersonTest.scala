@@ -4,18 +4,16 @@ import org.scalatest._
 import org.gradle.sample.impl.PersonImpl
 import org.gradle.sample.impl.JavaPerson
 
-class PersonTest extends FlatSpec with Matchers with
-  OptionValues with Inside with Inspectors {
+class PersonTest extends FunSuite {
 
-  // FIXME: use a Scala test framework to run a test
-  def testCanCreateScalaPersonImpl(): Unit = {
+  test("Can create Scala PersonImpl") {
     def person: Person = new PersonImpl("bob smith")
-    person
+    assert(Nil != person)
   }
 
-  def testCanCreateJavaPersonImpl(): Unit = {
+  test("Can create Java PersonImpl") {
     def person: Person = new JavaPerson("bob smith")
-    person
+    assert(Nil != person)
   }
 
 }
