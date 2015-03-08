@@ -1,5 +1,7 @@
 apply plugin: 'scala'
 
+version = '0.0.1-SNAPSHOT'
+
 repositories{
     mavenCentral()
     mavenLocal()
@@ -16,4 +18,16 @@ task run(type: JavaExec, dependsOn: classes) {
     main = 'Main'
     classpath sourceSets.main.runtimeClasspath
     classpath configurations.runtime
+}
+
+//create a single Jar with all dependencies
+task fatJar(type: Jar) {
+     manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',  
+        	   'Implementation-Version': version,
+        	   'Main-Class': 'Main'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
